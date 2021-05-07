@@ -1,0 +1,219 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/Users/kingofsean/Desktop/SEIR_Erica/game_project1/pictures/0VMdGiU.gif");
+    background-size: contain;
+}
+
+/* #title {
+    display: flex;
+    color: blue;
+    font-size: 200px;
+    position: ;
+    top: 0;
+} */
+
+.health-display {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    /* border: solid white; */
+    padding: 10px;
+    width: 80vw;
+    background-color: transparent;
+    border-radius: 30px;
+}
+
+#player-health {
+    display: flex;
+    align-items: center;
+    /* border: solid black; */
+    margin: 10px;
+    font-style: 'New Tegomin', serif;
+    color: white;
+    font-size: 40px;
+}
+
+#player-health-bar[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 300px;
+    height: 30px;
+}
+
+#player-health-bar[value]::-webkit-progress-bar {
+    background-color: rgb(201, 201, 201);
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+#player-health-bar[value]::-webkit-progress-value {
+    background-color: green;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+#enemy-health {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: solid black; */
+    margin: 10px;
+    color: white;
+    font-size: 40px;
+    font-style: 'New Tegomin', serif;
+}
+
+#enemy-health-bar[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 300px;
+    height: 30px;
+}
+
+#enemy-health-bar[value]::-webkit-progress-bar {
+    background-color: rgb(201, 201, 201);
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+#enemy-health-bar[value]::-webkit-progress-value {
+    background-color: red;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+#enemy-name {
+    display: block;
+    justify-content: center;
+    font-family: 'New Tegomin', serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: wheat;
+}
+
+
+.flex-container {
+    flex-direction: row;
+    position: relative;
+    bottom: -150px;
+    width: 700px;
+    max-width: 100%;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50px;
+    /* border: solid white; */
+    color: white;
+    
+}
+
+.button-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(2, auto);
+    margin: 30px;
+    gap: 10px;
+}
+
+.opt-button {
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 1.5rem 4rem;
+    color: white;
+    border-radius: 5rem;
+    box-sizing: content-box;
+    width: fit-content;
+    transition: all .2s;
+    position: relative;
+    font-size: 1rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    cursor: pointer;
+}
+
+.opt-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.2);
+}
+
+
+#text {
+    font-family: 'New Tegomin', serif;
+    font-size: 30px;
+}
+
+#game-over {
+    font-size: 200px;
+    color: red;
+    position: fixed;
+    top: 0;
+    /* border: solid white; */
+    box-sizing: content-box;
+    width: fit-content;
+    height: fit-content;
+}
+
+#player {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    flex-direction: row;
+    height: 280px;
+    transform: scaleX(-1);
+    /* border: solid white; */
+    box-sizing: content-box;
+    width: fit-content;
+    padding: 15px;
+}
+
+#player-victory {
+    box-sizing: content-box;
+    width:fit-content;
+    position: fixed;
+    height: 300px;
+}
+
+#thug1 {
+    display: flex;
+    position: fixed;
+    bottom: 50px;
+    flex-direction: row-reverse;
+    right: 200px;
+    height: 280px;
+    /* border: solid white; */
+    /* bottom: -250px; */
+    
+}
+
+#thug-lt {
+    display: flex;
+    position: fixed;
+    bottom: 50px;
+    right: 185px;
+}
+
+#thug-leader {
+    display: flex;
+    position: fixed;
+    bottom: 50px;
+    right: -200px;
+    height: 300px;
+}
+
+#death {
+    position: fixed;
+    left: 800px;
+    
+}

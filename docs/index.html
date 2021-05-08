@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/game.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=New+Tegomin&display=swap" rel="stylesheet">
+    <title>Thug Rumble</title>
+</head>
+<body>
+    <audio id="won" src="music/Final Fantasy X - Victory Fanfare.mp3"></audio>
+    <audio id="battle-song" loop src="music/1-17. Last Surprise.mp3"></audio>
+    <audio id="died" src="music/15-continue.mp3"></audio>
+    <h1 id="game-over">Game Over!</h1>
+    <div class="health-display">
+        <div id="player-health">
+            Player<progress id="player-health-bar" value="200" max="150"></progress>
+        </div>
+        <div id="enemy-name">text</div>
+        <div id="enemy-health">
+            Enemy <progress id="enemy-health-bar" value="200" max="200"></progress>
+        </div>
+    </div>
+    <div>
+        <div id="player"><img src="pictures/hero-stand.gif" alt=""></div>
+        <div id="player-victory"><img src="pictures/hero-victory.gif" alt=""></div>
+        <div class="enemies">
+            <div id="thug1"><img src="pictures/minion-stand.gif" alt=""></div>
+            <div id="thug-lt"><img src="pictures/lt-stand.gif" alt=""></div>
+            <div id="thug-leader"><img src="pictures/leader-stand.gif" alt=""></div>
+            <div id="death"><img src="pictures/gameover.gif" alt=""></div>
+        </div>
+        <div class="flex-container">
+            <div id="text">text</div>
+            <div id="buttons" class="button-grid">
+                <button class="opt-button" id="atk">Attack</button>
+                <button class="opt-button" id="item">Item</button>
+                <button class="opt-button" id="run">Run</button>
+                <button class="opt-button" id="fake">fake</button>
+                <button class="opt-button" id="start">Start</button>
+                <button class="opt-button" id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script src="script/game.js"></script>
+</body>
+</html>

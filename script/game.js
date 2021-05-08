@@ -27,7 +27,7 @@ const diedMusic = document.getElementById("died");
 class Player {
     constructor() {
         this.health = 150;
-        this.power = 80;
+        this.power = 30;
         this.accuracy = null;
     }
     attack() {
@@ -64,7 +64,7 @@ class Item {
 }
 
 const potion = new Item("Potion", 50);
-// let hiPotion = new Item("Hi-Potion", 30);
+
 
 
 // ENEMY CLASS
@@ -95,7 +95,7 @@ const thugLeader = new Thugs("Leader Sigma", 200, 20, 200);
 
 // ENEMY ARRAY
 const thugEncounters = [thug1, thugLt, thugLeader, "string"];
-const encounterPics = [thugPic, thugLtPic, leaderPic, victory];
+const encounterPics = [thugPic, thugLtPic, leaderPic, 'string'];
 // ITEM ARRAY
 const items = [];
 
@@ -103,14 +103,13 @@ const items = [];
 // FUNCTIONS
 let gamePlay = false;
 let turn = true;
-// playerHealth.innerText = "Health: " + userPlayer.health;
-// enemyHealth.innerText = "Enemy Health: " + thugEncounters[0].health;
 playerBar.value = userPlayer.health;
 enemyBar.value = thugEncounters[0].health;
 enemyBar.max = thugEncounters[0].max;
 mainText.innerText = "Welcome to Thug Rumble! A gang of thugs have kidnapped your best friend. You go to encounter them, but they want to fight you!"
 enemyName.innerText = "Enemy: " + thugEncounters[0].name;
 inventoryButton.innerText = "Use Potions: " + items.length;
+
 const playBattleMusic = () => {
     battleMusic.play();
 }
@@ -137,17 +136,23 @@ const startGamePlay = () => {
     fakeButton.style.visibility = "hidden";
     gameOver.style.visibility = "hidden";
     encounterPics[0].style.visibility = "visible";
+    victory.style.visibility = "hidden";
 }
 const question = () => {
     mainText.innerText = "What do you want to do?";
+    attackButton.disabled = false;
 }
+
+
+
 
 const playerAttack = () => {
     userPlayer.attack();
     enemyBar.value = thugEncounters[0].health;
     enemyBar.max = thugEncounters[0].max;
     turn = false;
-    if (turn === false) {
+    attackButton.disabled = true;
+    if (turn === false && thugEncounters[0] != "string") {
         setTimeout(enemyAttack, 2000);
         setTimeout(question, 3800);
     }
@@ -157,14 +162,12 @@ const playerAttack = () => {
         setTimeout(addPotion, 2000);
         setTimeout(question, 3700);
     }
-    if (thugEncounters.length === 1 || encounterPics.length < 1) {
-        setTimeout(youWin, 3801);
-    }
 }
 
 const enemyAttack = () => {
-    thugEncounters[0].attack(userPlayer);
-    // playerHealth.innerText = "Health: " + userPlayer.health;
+    if(thugEncounters != "string") {
+        thugEncounters[0].attack(userPlayer);
+    }
     playerBar.value = userPlayer.health;
     if (userPlayer.health <= 0){
         setTimeout(youDied, 3800);
@@ -179,7 +182,14 @@ const enemyDefeated = () => {
     enemyName.innerText = "Enemy: " + thugEncounters[0].name;
     encounterPics[0].style.visibility = "hidden";
     encounterPics.shift();
-    encounterPics[0].style.visibility = "visible";
+    if (thugEncounters[0] != "string") {
+        encounterPics[0].style.visibility = "visible";
+    } else {
+        enemyHealth.style.visibility = "hidden";
+        enemyName.style.visibility = "hidden";
+        setTimeout(youWin, 3800);
+    }
+    
 }
 
 const youDied = () => {
@@ -255,6 +265,7 @@ const youWin = () => {
     fakeButton.style.visibility = "hidden";
     gameOver.style.visibility = "visible";
     playerPic.style.visibility = "hidden";
+    victory.style.visibility = "visible";
     pauseBattleMusic();
     playWinMusic();
     
@@ -274,41 +285,6 @@ if (gamePlay === false) {
     victory.style.visibility = "hidden";
     lose.style.visibility = "hidden";
 }
-
-// while (gamePlay === true) {
-//     if (turn === false) {
-//         enemyAttack()
-//     }
-//     if (thugEncounters[0].health <= 0) {
-//         enemyDefeated();
-//         addPotion(potion);
-//     }
-//     if (userPlayer.health <= 0) {
-//         runAway();
-//     }
-//     if (thugEncounters.length = 0) {
-//         winner();
-//     }
-// }
-
-
-// while (turn === false) {
-    //     if (thugEncounters[0].health <= 0) {
-        //         thugEncounters[0].health = 0;
-        //         enemyDefeated();
-        //         addPotion(potion);
-        //     }
-        //     else if (userPlayer.health <= 0) {
-            //         runAway();
-            //     }
-//     else if (thugEncounters.length <= 0) {
-//         winner();
-//     }
-//     enemyAttack();
-//     turn = true;
-// }
-
-
 
 // EVENT LISTENERS
 startGameButton.addEventListener("click", startGamePlay);
